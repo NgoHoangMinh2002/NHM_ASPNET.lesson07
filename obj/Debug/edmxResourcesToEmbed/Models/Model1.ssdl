@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NhmK22CNTT3Lesson7Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="NhmKhoa">
+    <Key>
+      <PropertyRef Name="NhmMaKH" />
+    </Key>
+    <Property Name="NhmMaKH" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="NhmTenKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="NhmTrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="nhmsinhvien4">
+    <Key>
+      <PropertyRef Name="NhmMaSV" />
+    </Key>
+    <Property Name="NhmMaSV" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="NhmHoSV" Type="nchar" MaxLength="10" />
+    <Property Name="NhmTenSV" Type="nchar" MaxLength="10" />
+    <Property Name="NhmNgaySinh" Type="nchar" MaxLength="10" />
+    <Property Name="NhmPhai" Type="nchar" MaxLength="10" />
+    <Property Name="NhmPhone" Type="nchar" MaxLength="10" />
+    <Property Name="NhmEmail" Type="nchar" MaxLength="10" />
+    <Property Name="NhmMaKH" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_nhmsinhvien4_NhmKhoa">
+    <End Role="NhmKhoa" Type="Self.NhmKhoa" Multiplicity="0..1" />
+    <End Role="nhmsinhvien4" Type="Self.nhmsinhvien4" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhmKhoa">
+        <PropertyRef Name="NhmMaKH" />
+      </Principal>
+      <Dependent Role="nhmsinhvien4">
+        <PropertyRef Name="NhmMaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NhmK22CNTT3Lesson7ModelStoreContainer">
+    <EntitySet Name="NhmKhoa" EntityType="Self.NhmKhoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nhmsinhvien4" EntityType="Self.nhmsinhvien4" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_nhmsinhvien4_NhmKhoa" Association="Self.FK_nhmsinhvien4_NhmKhoa">
+      <End Role="NhmKhoa" EntitySet="NhmKhoa" />
+      <End Role="nhmsinhvien4" EntitySet="nhmsinhvien4" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

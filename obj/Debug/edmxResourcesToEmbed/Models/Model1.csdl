@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NhmK22CNTT3Lesson7Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="NhmKhoa">
+    <Key>
+      <PropertyRef Name="NhmMaKH" />
+    </Key>
+    <Property Name="NhmMaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NhmTenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NhmTrangThai" Type="Boolean" />
+    <NavigationProperty Name="nhmsinhvien4" Relationship="NhmK22CNTT3Lesson7Model.FK_nhmsinhvien4_NhmKhoa" FromRole="NhmKhoa" ToRole="nhmsinhvien4" />
+  </EntityType>
+  <EntityType Name="nhmsinhvien4">
+    <Key>
+      <PropertyRef Name="NhmMaSV" />
+    </Key>
+    <Property Name="NhmMaSV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NhmHoSV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NhmTenSV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NhmNgaySinh" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NhmPhai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NhmPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NhmEmail" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NhmMaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="NhmKhoa" Relationship="NhmK22CNTT3Lesson7Model.FK_nhmsinhvien4_NhmKhoa" FromRole="nhmsinhvien4" ToRole="NhmKhoa" />
+  </EntityType>
+  <EntityContainer Name="NhmK22CNTT3Lesson7Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="NhmKhoas" EntityType="Self.NhmKhoa" />
+    <EntitySet Name="nhmsinhvien4" EntityType="Self.nhmsinhvien4" />
+    <AssociationSet Name="FK_nhmsinhvien4_NhmKhoa" Association="NhmK22CNTT3Lesson7Model.FK_nhmsinhvien4_NhmKhoa">
+      <End Role="NhmKhoa" EntitySet="NhmKhoas" />
+      <End Role="nhmsinhvien4" EntitySet="nhmsinhvien4" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_nhmsinhvien4_NhmKhoa">
+    <End Type="NhmK22CNTT3Lesson7Model.NhmKhoa" Role="NhmKhoa" Multiplicity="0..1" />
+    <End Type="NhmK22CNTT3Lesson7Model.nhmsinhvien4" Role="nhmsinhvien4" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhmKhoa">
+        <PropertyRef Name="NhmMaKH" />
+      </Principal>
+      <Dependent Role="nhmsinhvien4">
+        <PropertyRef Name="NhmMaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

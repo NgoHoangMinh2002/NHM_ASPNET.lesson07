@@ -1,0 +1,69 @@
+﻿@model IEnumerable<NhmK22CNT3Lss07.Models.nhmsinhvien4>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "NhmCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NhmHoSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhmTenSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhmNgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhmPhai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhmPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhmEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhmKhoa.NhmTenKH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhmHoSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhmTenSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhmNgaySinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhmPhai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhmPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhmEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhmKhoa.NhmTenKH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "NhmEdit", new { id=item.NhmMaSV }) |
+            @Html.ActionLink("Details", "NhmDetails", new { id=item.NhmMaSV }) |
+            @Html.ActionLink("Delete", "NhmDelete", new { id=item.NhmMaSV })
+        </td>
+    </tr>
+}
+
+</table>

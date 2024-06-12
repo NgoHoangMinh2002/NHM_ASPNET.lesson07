@@ -1,0 +1,74 @@
+﻿@model NhmK22CNT3Lss07.Models.nhmsinhvien4
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>nhmsinhvien4</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NhmHoSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhmHoSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhmTenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhmTenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhmNgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhmNgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhmPhai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhmPhai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhmPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhmPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhmEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhmEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhmKhoa.NhmTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhmKhoa.NhmTenKH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NhmMaSV }) |
+    @Html.ActionLink("Back to List", "NhmIndex")
+</p>
